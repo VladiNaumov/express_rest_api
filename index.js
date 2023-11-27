@@ -22,16 +22,16 @@ app.use(express.json())
 app.use('/api/list', todoRoutes)
 
 
-app.use((req,res, next) => {
-res.sendFile(__dirname + '/public' + '/copy.html')
-
+app.get('*', (req, res) => {
+    res.sendFile(__dirname + '/public' + '/demo.html')
 })
+
 
 async function start() {
     try {
         //await sequelize.sync({force: true})
         await sequelize.sync()
-        app.listen(PORT)
+        app.listen(PORT, () => console.log('сервер запущен на порте '   + PORT + ' нажмите Ctrl+C для завершения...'))
     } catch (e) {
         console.log(e)
     }
