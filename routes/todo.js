@@ -10,7 +10,7 @@ const nodes = [
   {isIst: true, deu: 'ainkaufen', rus: 'покупать'},
 ]
 
-// Получение списка задач
+// GET Получение списка задач
 router.get('/', async (req, res) => {
   try {
 
@@ -24,7 +24,7 @@ router.get('/', async (req, res) => {
   }
 })
 
-// Создание новой задачи
+// POST Создание новой задачи
 router.post('/', async (req, res) => {
   try {
     const todo = await Todo.create({
@@ -40,7 +40,7 @@ router.post('/', async (req, res) => {
   }
 })
 
-// Изменение задачи
+// PUT Изменение задачи
 router.put('/:id', async (req, res) => {
   try {
     const todo = await Todo.findByPk(+req.params.id)
@@ -55,7 +55,7 @@ router.put('/:id', async (req, res) => {
   }
 })
 
-// Удаление задачи
+// DEL Удаление задачи
 router.delete('/:id', async (req, res) => {
   try {
     const todos = await Todo.findAll({
