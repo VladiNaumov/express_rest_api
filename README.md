@@ -9,4 +9,4 @@ Demo - Rest APi and Web server
 - npm run start
 - node index.js
 - localhost:3000/
-- localhost:3000/api/todo
+- localhost:3000/api/list
