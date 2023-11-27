@@ -2,18 +2,19 @@ const {Router} = require('express')
 const Todo = require('../models/todo')
 const router = Router()
 
+const nodes = [
+  {isIst: true, deu: 'der Hunger', rus: 'голод'},
+  {isIst: true, deu: 'die Costen', rus: 'покупать'},
+  {isIst: true, deu: 'jetzt', rus: 'сейчас'},
+  {isIst: true, deu: 'spät', rus: 'поздно'},
+  {isIst: true, deu: 'ainkaufen', rus: 'покупать'},
+]
+
 // Получение списка задач
 router.get('/', async (req, res) => {
   try {
-     const nodes = [
-      {isIst: true, deu: 'der Hunger', rus: 'голод'},
-      {isIst: true, deu: 'die Costen', rus: 'покупать'},
-      {isIst: true, deu: 'jetzt', rus: 'сейчас'},
-      {isIst: true, deu: 'spät', rus: 'поздно'},
-      {isIst: true, deu: 'ainkaufen', rus: 'покупать'},
-    ]
 
-    //  const todos = await Todo.findAll()
+    //const todos = await Todo.findAll()
     res.status(200).json(nodes)
   } catch (e) {
     console.log(e)

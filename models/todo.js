@@ -10,11 +10,11 @@ const todo = sequelize.define('Todo', {
   },
   done: {
     type: Sequelize.BOOLEAN,
-    allowNull: false
+    allowNull: true
   },
   title: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: true
   }
 })
 

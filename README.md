@@ -2,7 +2,7 @@
 # Express_rest_api Node.js Express
 
 ### About
-Demo - Rest APi and Web server
+Demo - Rest APi with database (Msql) connection
 
 ### Start
 - npm install
