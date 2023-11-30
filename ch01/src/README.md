@@ -9,5 +9,3 @@ Demo - Rest APi with database Msql connection + ORM sequelize
 - npm run start
 - node index.js
 - localhost:3000/
-- localhost:3000/api/list
-- curl localhost:3000/api/list

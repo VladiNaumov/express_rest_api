@@ -9,5 +9,3 @@
 ### Start
 - npm install
 - npm run start
-- node index.js
-- localhost:3000/

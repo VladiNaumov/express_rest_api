@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 3000
 const path = require('path')
 
 const sequelize = require('./utils/database')
-const todoRoutes = require('./routes/todo')
+const todoRoutes = require('./routes/todoruote')
 
 // Logger
 app.use(require ('morgan')('dev'))
@@ -23,7 +23,7 @@ app.use('/api/list', todoRoutes)
 
 
 app.get('*', (req, res) => {
-    res.sendFile(__dirname + '/public' + '/demo.html')
+    res.sendFile(__dirname + '/public' + '/index.html')
 })
 
 

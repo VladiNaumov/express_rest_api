@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const PORT = process.env.PORT || 3000
 const path = require('path')
-const todoRoutes = require('./routes/controller')
+const route = require('./routes/peoplerouter')
 const sequelize = require('./models/people')
 
 
@@ -19,11 +19,11 @@ app.use(require('cors')())
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.json())
-app.use('/api/list', todoRoutes)
+app.use('/api/list', route)
 
 
 app.get('*', (req, res) => {
-    res.sendFile(__dirname + '/public' + '/demo.html')
+    res.sendFile(__dirname + '/public' + '/index.html')
 })
 
 
