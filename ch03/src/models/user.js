@@ -1,6 +1,5 @@
-
+/* по правильному здесь должно быть подключение к базе данных, управление базой  */
 const users = [];
-
 module.exports= class User{
 
     constructor(name, age){
