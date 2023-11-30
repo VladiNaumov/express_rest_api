@@ -11,5 +11,3 @@
 - npm run start
 - node index.js
 - localhost:3000/
-- localhost:3000/api/list
-- curl localhost:3000/api/list
