@@ -9,7 +9,7 @@ app.use(require ('morgan')('dev'))
 app.use(require('cors')())
 
 // определяем маршруты и их обработчики
-app.use("/users/api", userRouter);
+app.use("/api", userRouter);
 app.use("/", homeRouter);
 
 app.use(function (req, res, next) {

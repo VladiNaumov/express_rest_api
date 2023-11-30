@@ -1,5 +1,6 @@
 const User = require("../models/user");
 
+
 /*
 Request : From Client to Server
 Response: From Server to Client
@@ -7,14 +8,45 @@ Server: Receive Request and Send Response
 Client: Send Request and Receive Response
 */
 
-exports.addUser = function (request, response){
+exports.getUsers = async function(_, res){
+    console.log('getUser',User.getAll())
+    res.send(User.getAll());
+};
+
+
+
+exports.getUsersId = async function(req, res){
     try{
-        console.log(request)
-        const name = request.name
-        const age = request.age
-        const user = new User(name, age)
-        user.save()
-        response.send("пользователь добавлен" );
+        const id = req.params.id;
+        console.log(id)
+        res.send('пользователь по ID номеру получен');
+
+    }catch (e){
+        console.log(e)
+        res.status(404).send("User not found");
+    }
+
+};
+
+
+exports.addUser = async function (req, res){
+    try{
+
+        if(!req.body) return res.sendStatus(400);
+        console.log(req.body)
+        const userName = req.body.name;
+        const userAge = req.body.age;
+
+        // console.log(request.body)
+
+        // const name = request.body
+        //  const age = request.age
+        //  const user = new User(name, age)
+        //  user.save()
+
+        res.send("пользователь добавлен" );
+
+
     }catch (e){
         console.log(e)
     }
@@ -22,9 +54,21 @@ exports.addUser = function (request, response){
 
 };
 
-exports.getUsers = function(request, response){
-    console.log('getUser',User.getAll())
-    response.send(User.getAll());
+exports.deletedUser = async function(req, res){
+    const id = req.params.id;
+    console.log(id)
+    res.send("пользователь удален " );
+
 };
 
 
+exports.putUser = async function (req, res){
+    if(!req.body) return req.sendStatus(400);
+
+    const id = req.body.id;
+    const userName = req.body.name;
+    const userAge = req.body.age;
+
+    res.send("пользователь изменён  " );
+
+}
