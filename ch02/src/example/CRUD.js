@@ -1,5 +1,5 @@
 const sqlite3 = require('sqlite3').verbose()
-const db = new sqlite3.Database('../db.db')
+const db = new sqlite3.Database('db.db')
 
 
 const init =() => {
@@ -17,7 +17,7 @@ const init =() => {
     db.run(people)
 }
 
-const add = () => {
+exports.add = () => {
 
 const people = [
     ` INSERT INTO people (NAME, AGE, ADDRESS) VALUES ('Tom', 37, 'Lahti');`,
@@ -34,7 +34,7 @@ const people = [
 
 };
 
-const getAll = () => {
+exports.getAll = () => {
     db.serialize(() => {
       db.all('SELECT * FROM people',function(err,rows){
           if(err){
@@ -47,7 +47,7 @@ const getAll = () => {
     });
 }
 
-const getWhere = ()=> {
+exports.getWhere = ()=> {
     db.serialize(() => {
       db.get('SELECT * FROM people WHERE ID=3',function(err,rows){
             if(err){
@@ -61,15 +61,12 @@ const getWhere = ()=> {
 
 }
 
-let update = () => {
-   db.run('UPDATE people SET AGE = AGE - 3000;');
+exports.update = () => {
+   db.run('UPDATE people SET AGE = AGE - 3000');
 }
 
 
-const del =  () => {
+exports.del =  () => {
     db.run('DELETE FROM people WHERE ID=1');
 
 }
-
-
-add()
