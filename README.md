@@ -2,7 +2,7 @@
 # Node.js Express RestAPi
 
 ### About
-Demo - Rest APi with database (Msql) connection
+Demo - Rest APi with database Msql connection + ORM sequelize
 
 ### Start
 - npm install
