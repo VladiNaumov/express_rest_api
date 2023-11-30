@@ -2,7 +2,7 @@
 # Node.js Express RestAPi
 
 ### About
-- Demo Rest APi demo MVC bd array
+- Demo Rest APi MVC with BD users = []
 
 ### Start
 - npm install
