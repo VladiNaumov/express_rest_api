@@ -34,15 +34,13 @@ exports.addUser = async function (req, res){
 
         if(!req.body) return res.sendStatus(400);
         console.log(req.body)
-        const userName = req.body.name;
-        const userAge = req.body.age;
+        const name = req.body.name;
+        const age = req.body.age;
 
-        // console.log(request.body)
+        console.log(req.body)
 
-        // const name = request.body
-        //  const age = request.age
-        //  const user = new User(name, age)
-        //  user.save()
+        const user = new User(name, age)
+        user.save()
 
         res.send("пользователь добавлен" );
 
@@ -65,9 +63,8 @@ exports.deletedUser = async function(req, res){
 exports.putUser = async function (req, res){
     if(!req.body) return req.sendStatus(400);
 
-    const id = req.body.id;
-    const userName = req.body.name;
-    const userAge = req.body.age;
+    const name = req.body.name;
+    const age = req.body.age;
 
     res.send("пользователь изменён  " );
 
