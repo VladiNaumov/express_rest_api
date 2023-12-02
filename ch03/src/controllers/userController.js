@@ -9,8 +9,15 @@ Client: Send Request and Receive Response
 */
 
 exports.getUsers = async function(_, res){
-    console.log('getUser',User.getAll())
-    res.send(User.getAll());
+    try{
+        res.send('пользователи получены ');
+
+    }catch (e){
+        console.log(e)
+        res.status(404).send("User not found");
+    }
+
+
 };
 
 
@@ -61,11 +68,13 @@ exports.deletedUser = async function(req, res){
 
 
 exports.putUser = async function (req, res){
+
     if(!req.body) return req.sendStatus(400);
 
     const name = req.body.name;
     const age = req.body.age;
-
+    console.log(name)
+    console.log(age)
     res.send("пользователь изменён  " );
 
 }
