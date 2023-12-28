@@ -1,3 +1,5 @@
+
+
 const sqlite3 = require('sqlite3').verbose()
 const db = new sqlite3.Database('BD.db')
 
@@ -47,8 +49,11 @@ getAll = () => {
 
 
 getWhere = ()=> {
-    db.serialize(() => {
-      db.get('SELECT * FROM people WHERE ID=3',function(err,rows){
+
+    const sql = 'SELECT * FROM people WHERE id=?';
+    const id = 1
+
+      db.get(sql, [id],function(err,rows){
             if(err){
                return this.err;
             }
@@ -56,7 +61,6 @@ getWhere = ()=> {
                return  rows;
             }
         });
-    });
 
 }
 
