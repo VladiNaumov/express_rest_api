@@ -1,7 +1,7 @@
 const {Router} = require('express')
 const router = Router()
 const db = require('../models/people')
-const GRUD = require("../example/CRUD.js");
+//const GRUD = require("../example/CRUD.js");
 
 // GET Получение списка задач
 router.get('/', async (req, res) => {

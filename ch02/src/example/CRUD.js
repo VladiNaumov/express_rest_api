@@ -31,20 +31,22 @@ const people = [
 };
 
 getAll = () => {
-    db.serialize(() => {
-     let a = db.all('SELECT * FROM people',function(err,rows){
-          if(err){
-              console.log(err);
-          }
-          else{
-             console.log(rows);
-          }
-        });
+
+    const sql = `SELECT * FROM people`;
+
+    db.all(sql,function(err,rows){
+        if(err){
+            console.log(err);
+        }
+        else{
+            console.log(rows);
+        }
     });
+
 }
 
 
-exports.getWhere = ()=> {
+getWhere = ()=> {
     db.serialize(() => {
       db.get('SELECT * FROM people WHERE ID=3',function(err,rows){
             if(err){
@@ -58,11 +60,11 @@ exports.getWhere = ()=> {
 
 }
 
-exports.update = () => {
+update = () => {
    db.run('UPDATE people SET AGE = AGE - 3000');
 }
 
-exports.del =  () => {
+del =  () => {
     db.run('DELETE FROM people WHERE ID=1');
 
 }
